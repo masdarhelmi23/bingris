@@ -1,0 +1,7 @@
+Cara membuat APK (tanpa Android Studio):
+1. Buat akun GitHub (gratis), lalu buat repository baru.
+2. Upload SEMUA isi folder ini (termasuk folder .github dan www).
+3. Buka tab Actions, tunggu proses "Build APK" selesai (sekitar 5 menit).
+4. Klik proses yang berhasil, unduh "inggris-dari-nol-apk" di bagian Artifacts.
+5. Ekstrak zip-nya, kirim app-debug.apk ke HP, lalu install.
+Mengubah materi: edit www/index.html (daftar materi ada di bagian atas script), upload ulang, build lagi.

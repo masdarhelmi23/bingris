@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inggris dari Nol</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap">
+<style>
+:root{--bg:#F2F6FC;--card:#fff;--ink:#14213D;--mute:#5B6B88;--line:#D9E2F0;--ok:#1B9E6B;--okbg:#DDF6EA;--no:#D63B45;--nobg:#FDE3E5;--go:#2F6BFF;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1626;--card:#17233A;--ink:#EAF0FB;--mute:#9FB0CF;--line:#2A3A5A;--ok:#4CD39B;--okbg:#12382B;--no:#FF7B84;--nobg:#3F1A1E;--go:#5B8CFF}}
+:root[data-theme="dark"]{--bg:#0E1626;--card:#17233A;--ink:#EAF0FB;--mute:#9FB0CF;--line:#2A3A5A;--ok:#4CD39B;--okbg:#12382B;--no:#FF7B84;--nobg:#3F1A1E;--go:#5B8CFF}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:600}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--go);outline-offset:2px}
+#app{max-width:480px;margin:0 auto;min-height:100vh}
+.top{position:sticky;top:env(safe-area-inset-top,0px);display:flex;gap:8px;justify-content:space-between;padding:12px 16px;background:var(--bg);z-index:5}
+.chip{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:6px 12px;font-weight:800}
+.inf{color:var(--go);font-size:20px;line-height:1}
+.intro{margin:4px 16px 8px;color:var(--mute);font-size:14px}
+.ub{margin:20px 16px 8px;padding:16px 18px;border-radius:18px;background:var(--c);color:#fff}
+.ub h2{margin:2px 0 0;font-size:20px;font-weight:800}.ub p{margin:8px 0 0;font-size:14px;line-height:1.45}.ub small{opacity:.9;font-weight:800}
+.nodes{display:flex;flex-direction:column;align-items:center;gap:18px;padding:16px 0 8px}
+.node{width:72px;height:72px;border-radius:50%;border:0;background:var(--c);color:#fff;font-size:24px;font-weight:800;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:translateX(var(--o));box-shadow:0 6px 0 color-mix(in srgb,var(--c) 68%,#000)}
+.node:active{box-shadow:0 2px 0 color-mix(in srgb,var(--c) 68%,#000);margin-top:4px;margin-bottom:-4px}
+.node i{font-style:normal;font-size:10px;letter-spacing:1px;margin-top:-2px}
+.les{display:flex;flex-direction:column;min-height:100vh}
+.bar{display:flex;align-items:center;gap:14px;padding:16px}
+.x{background:none;border:0;font-size:22px;color:var(--mute);padding:4px 8px}
+.pg{flex:1;height:14px;background:var(--line);border-radius:8px;overflow:hidden}
+.pg div{height:100%;background:var(--ok);border-radius:8px;transition:width .3s}
+.qb{flex:1;padding:8px 20px 140px}
+.qb h3{font-size:22px;margin:8px 0 18px;font-weight:800}
+.show{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:800;margin-bottom:20px}
+.sp{width:52px;height:52px;border-radius:16px;border:2px solid var(--line);border-bottom-width:4px;background:var(--card);font-size:22px}
+.sp.big{width:110px;height:110px;font-size:40px;display:block;margin:20px auto 28px;background:var(--go);border-color:transparent}
+.op{display:block;width:100%;text-align:left;margin:0 0 12px;padding:16px;border-radius:16px;background:var(--card);border:2px solid var(--line);border-bottom-width:4px;font-size:18px;font-weight:800}
+.op.sel{border-color:var(--go);background:color-mix(in srgb,var(--go) 14%,var(--card))}
+.lock{pointer-events:none}
+.line{min-height:62px;border-top:2px solid var(--line);border-bottom:2px solid var(--line);padding:8px 0;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.wb{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.w{padding:10px 14px;border-radius:14px;background:var(--card);border:2px solid var(--line);border-bottom-width:4px;font-size:18px;font-weight:800}
+footer{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;background:var(--bg);border-top:2px solid var(--line);padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px))}
+.go{width:100%;padding:15px;border:0;border-radius:16px;background:var(--go);color:#fff;font-size:17px;font-weight:800;box-shadow:0 4px 0 color-mix(in srgb,var(--go) 65%,#000)}
+.go:disabled{background:var(--line);color:var(--mute);box-shadow:none;cursor:default}
+.fb{margin:-14px -16px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fb.ok{background:var(--okbg);color:var(--ok)}.fb.no{background:var(--nobg);color:var(--no)}
+.fb b{font-size:20px}.fb p{margin:0;font-weight:800}
+.fb.ok .go{background:var(--ok)}.fb.no .go{background:var(--no)}
+.fin{text-align:center;padding:60px 24px 140px}
+.fin h1{font-size:30px;margin:12px 0}
+.st{font-size:48px;letter-spacing:6px}
+.stats{display:flex;gap:12px;justify-content:center;margin:24px 0}
+.stats div{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 18px;font-weight:800}
+.stats small{display:block;color:var(--mute)}
+.alt{background:none;border:0;color:var(--go);font-weight:800;margin-top:14px;padding:8px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const U=[
+{n:"Salam dan sopan santun",c:"#2F6BFF",t:"Please dipakai saat meminta, thank you saat berterima kasih, sorry saat meminta maaf.",p:[["Hello","Halo"],["Good morning","Selamat pagi"],["Good night","Selamat malam"],["Goodbye","Selamat tinggal"],["Thank you","Terima kasih"],["Please","Tolong"],["Sorry","Maaf"],["Yes","Ya"],["No","Tidak"]]},
+{n:"Berkenalan",c:"#0E9F8E",t:"I am = saya adalah. My name is = nama saya. Dua pola ini cukup untuk memperkenalkan diri.",p:[["I am Budi","Saya Budi"],["My name is Ana","Nama saya Ana"],["Nice to meet you","Senang bertemu denganmu"],["How are you?","Apa kabar?"],["I am fine","Saya baik"],["Where are you from?","Kamu dari mana?"],["I am from Indonesia","Saya dari Indonesia"]]},
+{n:"Angka 1 sampai 10",c:"#E8830C",t:"Hafalkan urutannya dulu, lalu dengarkan pengucapannya berulang kali.",p:[["One","Satu"],["Two","Dua"],["Three","Tiga"],["Four","Empat"],["Five","Lima"],["Six","Enam"],["Seven","Tujuh"],["Eight","Delapan"],["Nine","Sembilan"],["Ten","Sepuluh"]]},
+{n:"Makanan dan minuman",c:"#8A4FE0",t:"Kata benda. Bentuknya tidak berubah saat dipakai dalam kalimat.",p:[["Water","Air"],["Rice","Nasi"],["Bread","Roti"],["Milk","Susu"],["Coffee","Kopi"],["Tea","Teh"],["Egg","Telur"],["Fish","Ikan"],["Chicken","Ayam"],["Fruit","Buah"]]},
+{n:"Keluarga",c:"#D6336C",t:"Brother dan sister tidak membedakan kakak atau adik. Tambahkan older atau younger jika perlu.",p:[["Mother","Ibu"],["Father","Ayah"],["Brother","Saudara laki-laki"],["Sister","Saudara perempuan"],["Grandmother","Nenek"],["Grandfather","Kakek"],["Child","Anak"],["Friend","Teman"]]},
+{n:"Kalimat sederhana",c:"#2B9348",t:"Susunan dasar: pelaku + kata kerja + objek. Untuk he, she, it kata kerja diberi akhiran -s (she drinks).",p:[["I eat rice","Saya makan nasi"],["She drinks tea","Dia minum teh"],["He reads a book","Dia membaca buku"],["We go to school","Kami pergi ke sekolah"],["They play football","Mereka bermain sepak bola"],["I like coffee","Saya suka kopi"],["I love my family","Saya sayang keluarga saya"],["Where is the bathroom?","Di mana kamar mandi?"]]},
+{n:"Kata ganti",c:"#0B7285",t:"You berarti kamu atau kalian. They dipakai untuk orang maupun benda jamak. It untuk benda dan hewan.",p:[["I","Saya"],["You","Kamu"],["He","Dia laki-laki"],["She","Dia perempuan"],["It","Itu (benda)"],["We","Kami atau kita"],["They","Mereka"],["My","Milik saya"],["Your","Milikmu"],["Our","Milik kita"]]},
+{n:"Hari dalam seminggu",c:"#B5179E",t:"Nama hari selalu diawali huruf besar dalam bahasa Inggris.",p:[["Monday","Senin"],["Tuesday","Selasa"],["Wednesday","Rabu"],["Thursday","Kamis"],["Friday","Jumat"],["Saturday","Sabtu"],["Sunday","Minggu"]]},
+{n:"Warna",c:"#5C7CFA",t:"Warna diletakkan sebelum benda: a red bag, bukan a bag red.",p:[["Red","Merah"],["Blue","Biru"],["Green","Hijau"],["Yellow","Kuning"],["Black","Hitam"],["White","Putih"],["Pink","Merah muda"],["Brown","Cokelat"],["Purple","Ungu"],["Gray","Abu-abu"]]},
+{n:"Anggota tubuh",c:"#E03131",t:"Kata benda yang sering dipakai saat ke dokter atau olahraga.",p:[["Head","Kepala"],["Eye","Mata"],["Ear","Telinga"],["Nose","Hidung"],["Mouth","Mulut"],["Hand","Tangan"],["Leg","Kaki"],["Hair","Rambut"],["Tooth","Gigi"],["Heart","Jantung"]]},
+{n:"Hewan",c:"#2F9E44",t:"Gunakan a sebelum satu hewan: a cat. Jamak biasanya diberi -s: cats.",p:[["Cat","Kucing"],["Dog","Anjing"],["Bird","Burung"],["Cow","Sapi"],["Horse","Kuda"],["Duck","Bebek"],["Monkey","Monyet"],["Elephant","Gajah"],["Tiger","Harimau"],["Rabbit","Kelinci"]]},
+{n:"Rumah dan benda",c:"#B45F06",t:"Benda sehari-hari. Pakai this untuk yang dekat dan that untuk yang jauh.",p:[["House","Rumah"],["Door","Pintu"],["Window","Jendela"],["Table","Meja"],["Chair","Kursi"],["Bed","Tempat tidur"],["Book","Buku"],["Pen","Pulpen"],["Bag","Tas"],["Phone","Telepon"]]},
+{n:"Kata kerja umum",c:"#7048E8",t:"Bentuk dasar kata kerja. To dipakai di depan kata kerja saat menyatakan tujuan: I want to eat.",p:[["Eat","Makan"],["Drink","Minum"],["Sleep","Tidur"],["Walk","Berjalan"],["Run","Berlari"],["Read","Membaca"],["Write","Menulis"],["Open","Membuka"],["Close","Menutup"],["Buy","Membeli"],["Sell","Menjual"],["Come","Datang"]]},
+{n:"Kata sifat",c:"#1098AD",t:"Kata sifat diletakkan sebelum benda: a big house. Tidak berubah untuk jamak.",p:[["Big","Besar"],["Small","Kecil"],["Hot","Panas"],["Cold","Dingin"],["Good","Baik"],["Bad","Buruk"],["New","Baru"],["Old","Tua atau lama"],["Beautiful","Cantik"],["Fast","Cepat"]]},
+{n:"Waktu dan cuaca",c:"#D9480F",t:"Today, tomorrow, yesterday biasanya diletakkan di awal atau akhir kalimat.",p:[["Today","Hari ini"],["Tomorrow","Besok"],["Yesterday","Kemarin"],["Morning","Pagi"],["Afternoon","Siang atau sore"],["Night","Malam"],["Rain","Hujan"],["Sun","Matahari"],["Wind","Angin"],["Time","Waktu"]]},
+{n:"Kata tanya",c:"#364FC7",t:"Kata tanya diletakkan di awal kalimat: Where do you live?",p:[["What","Apa"],["Who","Siapa"],["Where","Di mana"],["When","Kapan"],["Why","Mengapa"],["How","Bagaimana"],["What is your name?","Siapa namamu?"],["How much is this?","Berapa harga ini?"],["Do you speak English?","Apakah kamu bisa bahasa Inggris?"],["Who is she?","Siapa dia?"]]},
+{n:"Ungkapan sehari-hari",c:"#C2255C",t:"Kalimat siap pakai. Hafalkan sebagai satu kesatuan, tidak perlu diterjemahkan kata per kata.",p:[["I am hungry","Saya lapar"],["I am thirsty","Saya haus"],["I am tired","Saya lelah"],["I do not understand","Saya tidak mengerti"],["Can you help me?","Bisakah kamu membantu saya?"],["I want to buy this","Saya mau membeli ini"],["Speak slowly please","Tolong bicara pelan-pelan"],["See you tomorrow","Sampai jumpa besok"],["Happy birthday","Selamat ulang tahun"],["I live in Indonesia","Saya tinggal di Indonesia"]]},
+{n:"Tenses dasar",c:"#087F5B",t:"Sedang: am, is, are + kata kerja-ing. Akan: will + kata kerja. Lampau: kata kerja bentuk kedua, misalnya went.",p:[["I am eating","Saya sedang makan"],["She is reading a book","Dia sedang membaca buku"],["They are playing","Mereka sedang bermain"],["We are learning English","Kami sedang belajar bahasa Inggris"],["I will go tomorrow","Saya akan pergi besok"],["He went to school","Dia pergi ke sekolah"],["I have a cat","Saya punya kucing"],["I do not have a car","Saya tidak punya mobil"],["Do you like tea?","Apakah kamu suka teh?"],["I can swim","Saya bisa berenang"]]}
+];
+const ALL=U.flatMap(u=>u.p),$=s=>document.querySelector(s);
+const fresh=()=>({xp:0,streak:0,last:"",done:{}});
+let S=fresh();
+try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem("inggris-dari-nol")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("inggris-dari-nol",JSON.stringify(S))}catch(e){}};
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const chunks=u=>{const r=[];for(let i=0;i<u.p.length;i+=5)r.push(u.p.slice(i,i+5));if(r.length>1&&r[r.length-1].length<3){const l=r.pop();r[r.length-1]=r[r.length-1].concat(l)}return r};
+function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function dis(u,p,i){const pool=shuf(u.p.filter(q=>q!==p)).concat(shuf(ALL.filter(q=>!u.p.includes(q)))),o=[];
+ for(const q of pool){if(q[i]!==p[i]&&!o.includes(q[i]))o.push(q[i]);if(o.length==3)break}return o}
+function build(u,ps){const q=[];
+ ps.forEach(p=>{
+  q.push({t:"pick",ask:"Apa artinya?",show:p[0],say:p[0],en:p[0],ans:p[1],o:shuf([p[1],...dis(u,p,1)])});
+  const w=p[0].split(" ");
+  if(w.length>1){const ex=shuf(ALL.flatMap(x=>x[0].split(" "))).filter(x=>!w.includes(x)).slice(0,2);
+   q.push({t:"arr",ask:"Susun kalimat dalam bahasa Inggris",show:p[1],en:p[0],ans:p[0],o:shuf([...w,...ex])})}
+  else q.push({t:"pick",ask:"Pilih bahasa Inggrisnya",show:p[1],en:p[0],ans:p[0],o:shuf([p[0],...dis(u,p,0)])});
+ });
+ shuf(ps).slice(0,2).forEach(p=>q.push({t:"pick",ask:"Ketuk speaker, lalu pilih yang kamu dengar",say:p[0],en:p[0],ans:p[0],o:shuf([p[0],...dis(u,p,0)])}));
+ return shuf(q)}
+
+function home(){
+ $("#app").innerHTML=`<header class="top"><b class="chip">🔥 ${S.streak} hari</b><b class="chip">⭐ ${S.xp} XP</b><b class="chip inf" title="Nyawa tanpa batas" aria-label="Nyawa tanpa batas">∞</b></header>
+ <p class="intro">Semua pelajaran terbuka. Salah jawab tidak mengurangi apa pun, ulangi sesukamu.</p>
+ <main>${U.map((u,ui)=>`<section><div class="ub" style="--c:${u.c}"><small>Unit ${ui+1}</small><h2>${u.n}</h2>${u.t?`<p>${u.t}</p>`:""}</div><div class="nodes">${chunks(u).map((ps,li)=>{const st=S.done[ui+"-"+li]||0;
+  return `<button class="node" style="--c:${u.c};--o:${[0,36,0,-36][li%4]}px" onclick="start(${ui},${li})" aria-label="Unit ${ui+1} pelajaran ${li+1}">${st?"✓":li+1}<i>${"★".repeat(st)+"☆".repeat(3-st)}</i></button>`}).join("")}</div></section>`).join("")}</main>`;
+ window.scrollTo(0,0)}
+
+let R;
+function start(ui,li){const u=U[ui];R={ui,li,u,q:build(u,chunks(u)[li]),miss:0,done:0};R.n=R.q.length;ask()}
+function ask(){
+ if(!R.q.length)return end();
+ const q=R.q[0];R.sel=null;R.pk=[];
+ const speak=q.say?`<button class="sp ${q.show?"":"big"}" onclick="say(R.q[0].say)" aria-label="Putar suara">🔊</button>`:"";
+ $("#app").innerHTML=`<div class="les"><div class="bar"><button class="x" onclick="home()" aria-label="Keluar">✕</button><div class="pg"><div style="width:${R.done/R.n*100}%"></div></div></div>
+ <div class="qb"><h3>${q.ask}</h3>${q.show?`<div class="show">${speak}<span>${q.show}</span></div>`:speak}
+ ${q.t=="arr"?`<div class="line" id="ln"></div><div class="wb" id="wb"></div>`:`<div id="op">${q.o.map((o,k)=>`<button class="op" onclick="pick(${k})">${o}</button>`).join("")}</div>`}</div>
+ <footer id="ft"><button class="go" id="go" disabled onclick="check()">Periksa</button></footer></div>`;
+ if(q.t=="arr")draw();
+ if(q.say&&!q.show)setTimeout(()=>say(q.say),300)}
+function pick(k){R.sel=k;document.querySelectorAll(".op").forEach((b,i)=>b.classList.toggle("sel",i==k));$("#go").disabled=false}
+function draw(){const q=R.q[0];
+ $("#ln").innerHTML=R.pk.map(k=>`<button class="w" onclick="tap(${k})">${q.o[k]}</button>`).join("");
+ $("#wb").innerHTML=q.o.map((o,k)=>R.pk.includes(k)?`<span class="w" style="visibility:hidden">${o}</span>`:`<button class="w" onclick="tap(${k})">${o}</button>`).join("");
+ $("#go").disabled=!R.pk.length}
+function tap(k){const i=R.pk.indexOf(k);i>=0?R.pk.splice(i,1):R.pk.push(k);draw()}
+function check(){
+ const q=R.q[0];
+ const ok=q.t=="pick"?q.o[R.sel]===q.ans:R.pk.map(k=>q.o[k]).join(" ")===q.ans;
+ if(ok){R.done++;R.q.shift()}else{R.miss++;R.q.push(R.q.shift())}
+ const bx=q.t=="pick"?$("#op"):$(".qb");bx.classList.add("lock");
+ $("#ft").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Benar!":"Jawaban yang benar:"}</b>${ok?"":`<p>${q.ans}</p>`}<button class="go" onclick="ask()">Lanjut</button></div>`;
+ say(q.en)}
+function end(){
+ const key=R.ui+"-"+R.li,st=R.miss==0?3:R.miss<=3?2:1,gain=Math.max(5,R.n*2-R.miss);
+ S.done[key]=Math.max(S.done[key]||0,st);S.xp+=gain;
+ const td=new Date().toLocaleDateString("sv"),yd=new Date(Date.now()-864e5).toLocaleDateString("sv");
+ if(S.last!==td){S.streak=S.last===yd?S.streak+1:1;S.last=td}
+ save();
+ const ui=R.ui,li=R.li;
+ $("#app").innerHTML=`<div class="fin"><div class="st">${"★".repeat(st)+"☆".repeat(3-st)}</div><h1>Pelajaran selesai!</h1>
+ <div class="stats"><div><small>XP</small>+${gain}</div><div><small>Salah</small>${R.miss}</div><div><small>Streak</small>🔥 ${S.streak}</div></div>
+ <button class="alt" onclick="start(${ui},${li})">Ulangi pelajaran ini</button></div>
+ <footer><button class="go" onclick="home()">Lanjut</button></footer>`}
+home();
+</script>
+</body>
+</html>
